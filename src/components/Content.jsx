@@ -1,74 +1,37 @@
-/**
- * Created by PHugenroth on 13.02.2017.
- */
 import React from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
 import assign from 'object-assign';
 
-import TaskStore from '../stores/TaskStore';
+import {Mode} from 'tobit-chayns_components/react-chayns-modeswitch';
+import UserList from './user_view/UserList';
+import PersonFinder from './admin_view/PersonFinder';
 
-import TaskAction from '../actions/TaskAction';
+import UserStore from '../stores/user/UserStore';
 
-import ToDoInput from './user_view/ToDoInput';
-import ToDoList from './user_view/ToDoList';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
-/**
- * Decorator, which connects the Component to the Store
- *
- */
 @connectToStores
 export default class Content extends React.Component{
-
+    //Retrieves the store instance that was created.
     static getStores() {
-        return [TaskStore];
+        // this will handle the listening/unlistening for you
+        return [UserStore];
     }
 
     static getPropsFromStores() {
+        // this is the data that gets passed down as props
+        // each key in the object returned by this function is added to the `this.props`
         return assign({},
-            TaskStore.getState()
+            UserStore.getState()
         );
     }
 
-    constructor(){
-        super();
-        this.state = {
-            inputValue: ''
-        };
-
-        this.inputOnChange = this.inputOnChange.bind(this);
-        this.inputOnBlur = this.inputOnBlur.bind(this);
-    }
-
-    inputOnChange(event){
-        this.setState({
-            inputValue: event.target.value
-        })
-    }
-
-    inputOnBlur(){
-        if(this.state.inputValue) {
-            TaskAction.addTask(this.state.inputValue);
-            this.setState({
-                inputValue: ''
-            })
-        }
-    }
-
-    render(){
-        /**
-         * The states from the connected stores are available
-         * in the "this.props"-Object
-         */
+    render() {
         return(
             <div className="tapp__content content">
-                <ToDoInput
-                    value={this.state.inputValue}
-                    onBlur={this.inputOnBlur}
-                    onChange={this.inputOnChange}
-                />
-                <ToDoList
-                    items={this.props.tasks}
-                />
+                <Mode mode={1} /**listens for mode 1 of modeswitch**/>
+                    <PersonFinder />
+                </Mode>
+                <UserList user={this.props.users} /**Provide the user list array to the UserList element as a prop**/ />
             </div>
         );
     }
