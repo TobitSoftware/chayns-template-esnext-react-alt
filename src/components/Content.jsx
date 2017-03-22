@@ -3,7 +3,7 @@ import assign from 'object-assign';
 
 import {Mode} from 'tobit-chayns_components/react-chayns-modeswitch';
 import UserList from './user_view/UserList';
-import PersonFinder from './admin_view/PersonFinder';
+import PersonFinderWrapper from './admin_view/PersonFinderWrapper';
 
 import UserStore from '../stores/user/UserStore';
 
@@ -29,7 +29,7 @@ export default class Content extends React.Component{
         return(
             <div className="tapp__content content">
                 <Mode mode={1} /**listens for mode 1 of modeswitch**/>
-                    <PersonFinder />
+                    <PersonFinderWrapper />
                 </Mode>
                 <UserList user={this.props.users} /**Provide the user list array to the UserList element as a prop**/ />
             </div>
