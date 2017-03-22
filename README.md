@@ -1,28 +1,33 @@
-chayns with React + alt.js + ES2015 - Template
+chayns with React + Alt.js + ES.NEXT - Template
 ===================
-This template will help you getting started with building Tapps for your chayns®-Website with React, alt.js and ES2015. First of all you have to make sure, that you have the latest version of [node.js][1] installed.
-If you are new to using a flux implementation in your project you might want to take a look at the [overview of flux][3] and the [Getting Started][4] of alt.js.
+This template contains a tapp using the chayns ModeSwitch, Accordion and PersonFinder components.<br>
+If you're a chayns® manager you can switch to the specific mode and a PersonFinder will get visible.<br>
+Using this PersonFinder you can select users which then will be appended to the user list.
 
-Setup
+This template will help you getting started with building Tapps for your chayns®-Website with React, Alt.js and ES.Next. First of all you have to make sure, that you have the latest version of [node.js][1] installed.
+
+Development
 -------------
-Install all project dependencies:
-```
-npm i
-```
-Build the empty folder structure of your project:
-```
-npm run setup
-```
-Start your webpack-dev-server for debugging your project:
-```
-npm start
-```
-Now you just need to create a Tapp with the URL `http://localhost:8080` and you can debug the project in the chayns environment of your website.
+1. Install all project dependencies with  `npm i`
+2. Start your webpack-dev-server for debugging your project with `npm start`
+    * The webpack-dev-server is now running on your localhost on the port 8080. If the port is not available you can change it in the dev.babel.js in the webpack folder.
 
+3. Implement the example Tapp to your chayns® site .
+    1. Go to configuration -> Tapps
+    2. Click `Add Tapp`
+    3. Use external content
+    4. Give the Tapp a name and type in the following URL : `http://localhost:8080`
+    5. Click `add`
+4. Start development.
 
 > **Hint:** Writing Tapps with React? You might also want to take a look at our [React Style Guide][2].
 
+Building
+---------
+You can build this project via `npm run build`.
+
+You can also build this project with sourceMaps for testing via `npm run build:qa`.
+
+
  [1]: https://nodejs.org/en/
  [2]: https://github.com/TobitSoftware/chayns-guides/blob/master/TobitReactJsxStyleGuide.md
- [3]: https://facebook.github.io/flux/docs/in-depth-overview.html#content
- [4]: http://alt.js.org/guide/
