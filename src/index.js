@@ -5,6 +5,8 @@ import { AppContainer } from 'react-hot-loader';
 import { ModeSwitch } from 'tobit-chayns_components/react-chayns-modeswitch';
 import App from './App';
 
+import SERVER_URL from './constants/server-url';
+
 const tappElement = document.querySelector('.tapp');
 
 /**
@@ -29,6 +31,8 @@ const render = Component => {
  */
 async function init() {
     try {
+        console.debug('ServerUrl for current environment:', SERVER_URL);
+
         await chayns.ready;
 
         render(App);
