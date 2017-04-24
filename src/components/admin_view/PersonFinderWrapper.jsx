@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PersonFinder from 'tobit-chayns_components/react-chayns-personfinder';
 
@@ -21,7 +22,7 @@ PersonFinderWrapper.selectUser = (object) => {
 };
 
 PersonFinderWrapper.propTypes = {
-    addUser: React.PropTypes.func
+    addUser: PropTypes.func
 };
 
 export default PersonFinderWrapper;
