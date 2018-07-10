@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Accordion from 'tobit-chayns_components/react-chayns-accordion';
+import { Accordion } from 'chayns-components';
 
 import './user-list.scss';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PersonFinder from 'tobit-chayns_components/react-chayns-personfinder';
+import { PersonFinder } from 'chayns-components';
 
 import UserAction from '../../actions/user/UserAction';
 

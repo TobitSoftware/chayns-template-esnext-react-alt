@@ -1,6 +1,6 @@
 import React from 'react';
+import { Mode } from 'chayns-components';
 
-import { Mode } from 'tobit-chayns_components/react-chayns-modeswitch';
 import UserList from './user_view/UserList';
 import PersonFinderWrapper from './admin_view/PersonFinderWrapper';
 
