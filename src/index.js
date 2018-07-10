@@ -13,7 +13,7 @@ const tappElement = document.querySelector('.tapp');
  * Renders a component as entry point of your application into the tapp element.
  * @param Component
  */
-const render = Component => {
+const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
             <Component />

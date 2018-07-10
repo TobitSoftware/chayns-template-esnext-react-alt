@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { PersonFinder } from 'chayns-components';
 
 import UserAction from '../../actions/user/UserAction';
 
-const PersonFinderWrapper = ({ addUser }) => (
+const PersonFinderWrapper = () => (
     <PersonFinder
+        style={{ width: '100%' }}
         placeholder="Search for users"
         /**
          * onChange is a person finder specified event provided via the chayns api
@@ -16,13 +16,9 @@ const PersonFinderWrapper = ({ addUser }) => (
     />
 );
 
-//Pushes an user object to the state 'user' and refresh's the react component 'UserList'
+// Pushes an user object to the state 'user' and refresh's the react component 'UserList'
 PersonFinderWrapper.selectUser = (object) => {
     UserAction.addUser(object.user);
-};
-
-PersonFinderWrapper.propTypes = {
-    addUser: PropTypes.func
 };
 
 export default PersonFinderWrapper;
