@@ -1,4 +1,6 @@
 import path from 'path';
+import resolveAbsoluteImport from 'chayns-components/lib/utils/babel/resolveAbsoluteImport';
+import BabelTransformPlugin from 'babel-plugin-transform-imports';
 
 const ROOT_PATH = path.resolve('./');
 
@@ -23,7 +25,15 @@ export default (dev = false) => {
                 {
                     test: /\.(js|jsx)$/,
                     use: [{
-                        loader: 'babel-loader'
+                        loader: 'babel-loader',
+                        options: {
+                            plugins: [[BabelTransformPlugin, {
+                                'chayns-components': {
+                                    transform: resolveAbsoluteImport,
+                                    preventFullImport: true
+                                }
+                            }]]
+                        }
                     }],
                     exclude: /node_modules/
                 },
